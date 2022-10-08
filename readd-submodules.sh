@@ -13,56 +13,21 @@ set -eu
 
 DIR=$(dirname "$0")
 cd "${DIR:?}"
+readarray -t SUBMODULES < <(git submodule status | cut -d' ' -f2 | tr -d "[:blank:]")
+SUBMODULES_LENGTH="${#SUBMODULES[@]}"
 git submodule init
 git submodule update
-{
-    git submodule deinit -f --all
-    rm -rf "${DIR:?}/"0_template
-    rm -rf "${DIR:?}/"app_cli_iterators
-    rm -rf "${DIR:?}/"app_cli
-    rm -rf "${DIR:?}/"box_smart_pointer
-    rm -rf "${DIR:?}/"closures
-    rm -rf "${DIR:?}/"collections
-    rm -rf "${DIR:?}/"deref_trait
-    rm -rf "${DIR:?}/"drop_trait
-    rm -rf "${DIR:?}/"enums
-    rm -rf "${DIR:?}/"error_handling
-    rm -rf "${DIR:?}/"generic_types
-    rm -rf "${DIR:?}/"guessing_game
-    rm -rf "${DIR:?}/"hello_world
-    rm -rf "${DIR:?}/"iterators
-    rm -rf "${DIR:?}/"leomeinel_sample
-    rm -rf "${DIR:?}/"lifetimes
-    rm -rf "${DIR:?}/"module_system
-    rm -rf "${DIR:?}/"ownership
-    rm -rf "${DIR:?}/"testing
-    rm -rf "${DIR:?}/"traits
-    rm -rf "${DIR:?}/"variables
-    rm -rf "${DIR:?}/"workspaces
-    rm -rf "${DIR:?}/".git/modules/0_template
-    rm -rf "${DIR:?}/".git/modules/app_cli_iterators
-    rm -rf "${DIR:?}/".git/modules/app_cli
-    rm -rf "${DIR:?}/".git/modules/box_smart_pointer
-    rm -rf "${DIR:?}/".git/modules/closures
-    rm -rf "${DIR:?}/".git/modules/collections
-    rm -rf "${DIR:?}/".git/modules/deref_trait
-    rm -rf "${DIR:?}/".git/modules/drop_trait
-    rm -rf "${DIR:?}/".git/modules/enums
-    rm -rf "${DIR:?}/".git/modules/error_handling
-    rm -rf "${DIR:?}/".git/modules/generic_types
-    rm -rf "${DIR:?}/".git/modules/guessing_game
-    rm -rf "${DIR:?}/".git/modules/hello_world
-    rm -rf "${DIR:?}/".git/modules/iterators
-    rm -rf "${DIR:?}/".git/modules/leomeinel_sample
-    rm -rf "${DIR:?}/".git/modules/lifetimes
-    rm -rf "${DIR:?}/".git/modules/module_system
-    rm -rf "${DIR:?}/".git/modules/ownership
-    rm -rf "${DIR:?}/".git/modules/testing
-    rm -rf "${DIR:?}/".git/modules/traits
-    rm -rf "${DIR:?}/".git/modules/variables
-    rm -rf "${DIR:?}/".git/modules/workspaces
-    rm -rf "${DIR:?}/".gitmodules
-} || echo "Warning: No submodules to deinitialize!"
+git submodule deinit -f --all
+for ((i = 0; i < SUBMODULES_LENGTH; i++)); do
+    rm -rf "${DIR:?}/${SUBMODULES[$i]}"
+    rm -rf "${DIR:?}/.git/modules/${SUBMODULES[$i]}"
+    {
+        unset 'SUBMODULES[$i]'
+        continue
+    }
+    SUBMODULES=("${SUBMODULES[@]}")
+done
+rm -rf "${DIR:?}/.gitmodules"
 git add .
 git commit -m "Remove submodules" || true
 git submodule add git@github.com:LeoMeinel/0_template.git
