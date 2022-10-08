@@ -64,7 +64,7 @@ git submodule update
     rm -rf "${DIR:?}/".gitmodules
 } || echo "Warning: No submodules to deinitialize!"
 git add .
-git commit -m "Remove submodules"
+git commit -m "Remove submodules" || true
 git submodule add git@github.com:LeoMeinel/0_template.git
 git submodule add git@github.com:LeoMeinel/app_cli_iterators.git
 git submodule add git@github.com:LeoMeinel/app_cli.git
@@ -90,4 +90,4 @@ git submodule add git@github.com:LeoMeinel/workspaces.git
 git submodule init
 git submodule sync
 git submodule update --remote --merge
-git commit -m "Add submodules"
+git commit -m "Add submodules" || true
