@@ -90,4 +90,5 @@ git submodule add git@github.com:LeoMeinel/workspaces.git
 git submodule init
 git submodule sync
 git submodule update --remote --merge
+git add .
 git commit -m "Add submodules" || true
