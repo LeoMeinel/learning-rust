@@ -1,0 +1,66 @@
+[submodule "0_template"]
+	path = 0_template
+	url = git@github.com:LeoMeinel/0_template.git
+[submodule "app_cli_iterators"]
+	path = app_cli_iterators
+	url = git@github.com:LeoMeinel/app_cli_iterators.git
+[submodule "app_cli"]
+	path = app_cli
+	url = git@github.com:LeoMeinel/app_cli.git
+[submodule "box_smart_pointer"]
+	path = box_smart_pointer
+	url = git@github.com:LeoMeinel/box_smart_pointer.git
+[submodule "closures"]
+	path = closures
+	url = git@github.com:LeoMeinel/closures.git
+[submodule "collections"]
+	path = collections
+	url = git@github.com:LeoMeinel/collections.git
+[submodule "deref_trait"]
+	path = deref_trait
+	url = git@github.com:LeoMeinel/deref_trait.git
+[submodule "drop_trait"]
+	path = drop_trait
+	url = git@github.com:LeoMeinel/drop_trait.git
+[submodule "enums"]
+	path = enums
+	url = git@github.com:LeoMeinel/enums.git
+[submodule "error_handling"]
+	path = error_handling
+	url = git@github.com:LeoMeinel/error_handling.git
+[submodule "generic_types"]
+	path = generic_types
+	url = git@github.com:LeoMeinel/generic_types.git
+[submodule "guessing_game"]
+	path = guessing_game
+	url = git@github.com:LeoMeinel/guessing_game.git
+[submodule "hello_world"]
+	path = hello_world
+	url = git@github.com:LeoMeinel/hello_world.git
+[submodule "iterators"]
+	path = iterators
+	url = git@github.com:LeoMeinel/iterators.git
+[submodule "leomeinel_sample"]
+	path = leomeinel_sample
+	url = git@github.com:LeoMeinel/leomeinel_sample.git
+[submodule "lifetimes"]
+	path = lifetimes
+	url = git@github.com:LeoMeinel/lifetimes.git
+[submodule "module_system"]
+	path = module_system
+	url = git@github.com:LeoMeinel/module_system.git
+[submodule "ownership"]
+	path = ownership
+	url = git@github.com:LeoMeinel/ownership.git
+[submodule "testing"]
+	path = testing
+	url = git@github.com:LeoMeinel/testing.git
+[submodule "traits"]
+	path = traits
+	url = git@github.com:LeoMeinel/traits.git
+[submodule "variables"]
+	path = variables
+	url = git@github.com:LeoMeinel/variables.git
+[submodule "workspaces"]
+	path = workspaces
+	url = git@github.com:LeoMeinel/workspaces.git
